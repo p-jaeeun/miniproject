@@ -97,9 +97,14 @@ router.post('/payment', function(req, res, next){
 
   // 1. 먼저 중복출차 막고 나서 
   db.query(sql,[outNumber],function(err,result){
-    if(result[0].leave_time !== null && result[0].paid === 1){
+    console.log(result);
+    if(!result.length){
       res.render("parkingOut",{title: '90주차장 - 차량 출차', message:'" 입차되지 않은 차량입니다."'});
-    } else if(result[0].leave_time !== null  && result[0].paid === 0 ){
+    }
+    else{
+      if(result[0].leave_time !== null && result[0].paid===1){
+      res.render("parkingOut",{title: '90주차장 - 차량 출차', message:'" 입차되지 않은 차량입니다."'});
+     } else if(result[0].leave_time !== null  && result[0].paid === 0 ){
       console.log("출차만 누르고 결제안한 차량.");
       db.query(`UPDATE parking_log SET leave_time is null WHERE vehicle_num= ? AND enter_time is NOT NULL ORDER BY enter_time DESC LIMIT 1`,
       [outNumber],function(err,result){
@@ -108,6 +113,7 @@ router.post('/payment', function(req, res, next){
     } else {
       console.log('정상출차차량');
     }
+   }
   });
   // 2. 출차로그를 찍는다.
   db.query(sql1,[outNumber],function(err,result){
