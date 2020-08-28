@@ -1,0 +1,453 @@
+/*-------- 기본설정 ---------*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color:#404040;
+}
+html{
+  background-color: #f5f5f5;
+}
+#wrap {
+  width: 1200px;
+  margin: 0 auto;
+}
+a {
+  text-decoration:none;
+}
+a:hover{
+  color:rgb(255, 187, 0);
+}
+
+li {
+  list-style: none;
+}
+
+.colored{
+  color:rgb(255, 187, 0);
+}
+
+input:focus, button:focus{
+  outline: none;
+}
+
+/* ----------------------- */
+/*--------- body ----------*/
+
+
+body {
+  margin:auto;
+  font:  Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+/*-------- header ---------*/
+
+header{
+  width: 100%;
+  height: 130px;
+  margin: auto;
+  background-color:#fff;
+  border-bottom: 2px solid #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.header_title{
+  display: inline-block;
+  margin: 20px 0px;
+  font-size: 30px;
+  color:#404040;
+  font-weight: 700;
+  
+}
+
+/*---------- nav ----------*/
+nav{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.nav_list li {
+  display: flex;
+  flex-direction: row;
+  
+}
+.nav_list li{
+  display: inline-block;
+  padding: 0px 30px;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+
+
+/*---------- index(home화면)----------*/
+.container {
+  width: 100%;
+  min-height: 800px;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color:#fff;
+}
+.img_wrapper {
+  width:50%;
+}
+.container img {
+  max-width: 100%;
+  height: auto;
+}
+.home_section{
+  width: 50%;
+  padding: 20px;
+}
+.home_content{
+  margin-top: 40%;
+  line-height: 30px;
+}
+.home_content p{
+  font-size: 15px;
+}
+.home_title{
+  font-size:40px;
+  font-weight: 600;
+  font-style: italic;
+  color:rgb(255, 187, 0);
+
+  margin-bottom: 10px;
+}
+
+
+/*---------- 차량 입출차 입력화면----------*/
+.parking_group{
+  margin-top: 20%; 
+  padding:20px 0px;
+}
+
+.inputbox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px 0px;
+}
+
+.inputbox input {
+  width: 200px;
+  height: 65px;
+  font-size: 25px;
+  font-weight:400;
+  color: #404040;
+  padding: 10px;
+}
+.car_in, .car_out{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding:15px;
+}
+.car_in_result, .car_out_result{
+  text-align: center;
+}
+#in_btn, #out_btn {
+  width: 65px;
+  height: 65px;
+  margin-left: 10px;
+  font-size: 15px;
+  background-color: #404040;
+  border-radius:5px;
+  border: none;
+  color:#fff;
+}
+.parking_title{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+/*--------  주차요금 정산 화면 -------*/
+
+.pay_group{
+  margin-top:20%;
+}
+.pay_title{
+  text-align: center;
+  margin-bottom: 5%;
+}
+.pay_info{
+  font-size: 15px;
+  text-align: center;
+}
+.pay_receipt{
+  padding: 20px 0px;
+}
+
+#receipt {
+  width: 200px;
+  height: 30px;
+  font-weight: 300;
+  padding: 0px 5px;
+}
+#receipt_btn{
+  width: 35px;
+  height: 30px;
+  margin-left: 10px;
+  font-size: 12px;
+  background-color: #404040;
+  border-radius:5px;
+  border: none;
+  color:#fff;
+}
+#card_btn, #cash_btn{
+  width: 65px;
+  height: 30px;
+  margin-left: 10px;
+  font-size: 12px;
+  background-color: #404040;
+  border-radius:5px;
+  border: none;
+  color:#fff;
+}
+
+#exit_btn{
+  width: 65px;
+  height: 30px;
+  font-size: 12px;
+  margin-top: 20px;
+  background-color: #404040;
+  border-radius:5px;
+  border: none;
+  color:#fff;
+}
+
+/*-------- 차량 출차화면(exit)-------*/
+
+
+.exit_bg{
+  width: 100%;
+  height: auto;
+  background-image: url('../images/exit.jpg');
+  background-position: center;
+  background-size: cover;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.exit_text{
+  font-size:20px;
+  font-weight: 400;
+  color :#fff;
+  text-align:center;
+  opacity: 0.5;
+  text-shadow:  -1px 0 #000,0 1px #000,1px 0 #000,0 -1px #000;
+}
+
+/*---------- 관리자 화면----------*/
+
+/* 1. 관리자 로그인 창 */
+.login_group {
+  margin-top: 20%; 
+  padding:20px 0px;
+}
+
+.login_info {
+  padding:20px 0px;
+  text-align: center;
+}
+
+span{
+  font-size:13px;
+  font-weight: 300;
+}
+form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+form p{
+  padding: 5px 0px;
+}
+.login_input{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#id, #password {
+  width:150px;
+  height: 25px;
+  font-size: 12px;
+  font-weight: 300;
+  padding: 0px 10px;
+}
+#login_btn {
+  margin: 5px 0px 0px 5px;
+  width: 50px;
+  height: 60px;
+  font-size: 12px;
+  background-color: #404040;
+  border: none;
+  color:#fff;
+  border-radius:5px;
+}
+
+/* 2. 관리자 - 메인화면 */
+.admin_container {
+  width: 100%;
+  min-height: 800px;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color:#fff;
+}
+.admin_menu {
+  width:15%;
+  font-size:14px;
+  border-right: 2px solid #f5f5f5;
+}
+.admin_menu_list{
+  padding: 5px;
+  margin:30% 30%;
+}
+.admin_menu_list li{
+  text-align: center;
+  padding: 20px 0px;
+}
+.admin_main_section{
+  width: 85%;
+  text-align: center;
+  background-image: url('../images/admin.jpg');
+  opacity: 0.7;
+}
+.admin_section{
+  width: 85%;
+  text-align: center;
+  padding-bottom: 10%;
+}
+.admin_main_text{
+  size: 15px;
+  font-weight: 500;
+  color: #404040;
+  margin:10% 0%;
+}
+.admin_title{
+  size: 15px;
+  font-weight: 500;
+  padding-bottom: 20px;
+}
+
+/* 1-2. 관리자 - 주차현황,정기주차 테이블*/
+table{
+  width:75%;
+  margin:auto;
+  border: 1px solid #404040;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+th,td{
+  border-bottom: 1px solid #404040;
+  padding: 10px;
+}
+td{
+  width: 100px;
+}
+
+
+/* 3. 관리자 - 정기권 신규고객 등록 */
+
+.membership_group{
+  margin-top: 20%; 
+  padding:20px 0px;
+}
+.membership_info{
+  padding:20px 0px;
+  text-align: center;
+}
+#addMember_btn {
+  margin: 5px 0px 0px 5px;
+  width: 50px;
+  height: 60px;
+  font-size: 12px;
+  background-color: #404040;
+  border: none;
+  color:#fff;
+  border-radius:5px;
+}
+
+#add_name, #add_carNum {
+  width:150px;
+  height: 25px;
+  padding: 0px 10px;
+  font-size: 12px;
+}
+
+/* 4. 관리자 - 주차요금 변경 */
+
+.admin_changeFare{
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+}
+.fare_info{
+  font-size:16px;
+  padding: 20px 0px;
+}
+#change_input{
+  width:150px;
+  height: 30px;
+  font-size:12px;
+  padding: 0px 10px;
+}
+#change_btn{
+  width: 35px;
+  height: 30px;
+  margin-left: 10px;
+  font-size: 12px;
+  background-color: #404040;
+  border-radius:5px;
+  border: none;
+  color:#fff;
+}
+.admin_content{
+  margin-top:20%;
+}
+/*---------- footer ----------*/
+footer{
+  width: 100%;
+  height: 130px;
+  border-top: 2px solid #f5f5f5;
+  background-color:#fff;
+}
+.footer_list{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer_item1{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 60px;
+} 
+
+.footer_item1:hover{
+  color:rgb(255, 187, 0);
+}
+.footer_item1 span{
+  font-size:11px;
+  padding: 0px 3px;
+}
+.footer_item2{
+  font-size:11px;
+  color:#404040;
+  margin-top: 10px;
+}

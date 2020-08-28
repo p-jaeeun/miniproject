@@ -1,0 +1,30 @@
+<% var message; 
+if(message == null){
+  message ="";
+}
+var message2;
+if(message2 ==null){
+  message2="";
+} %>
+<% include header.ejs %>
+      <div class="container">
+        <section class="parking_group">
+          <div class="parking_title">
+            <h1>차량 입차</h1><br/>
+          <span>입차할 차량 번호를 입력해주세요.</span>
+          </div>
+          <form action="/parking/start" method="post" class="inputbox">
+            <div class="car_in">
+                <input type="text" id="inNumber" placeholder="(예) 00가0000" autocomplete="off" name="inNumber" required pattern="([0-9]{2})([가-힣]{1})([0-9]{4})" >
+                <button type="submit" id="in_btn">입차</button><br>
+                
+                
+            </div>
+            <div class="car_in_result"><%= message %></div>
+            <% if (message2 !== "") {%>
+
+            <div class="car_in_result">정기권 만료까지 <span class="colored"><%= message2 %></span>일 남았습니다.</div> <%}%>
+          </form>
+        </section>
+       </div>
+<% include footer.ejs %>

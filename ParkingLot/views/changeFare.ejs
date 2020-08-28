@@ -1,0 +1,23 @@
+<% var changedFare; 
+if(changedFare == null){
+  changedFare =100;
+}
+%>
+<% include header.ejs %>
+      <div class="admin_container">
+        <% include admin_menu.ejs %>
+        <section class="admin_section">
+          <div class="admin_content">
+          <div class="admin_title">
+           <h1> 주차 요금 관리</h1><br/>
+           <span>변경할 금액을</span><span> 입력해주세요.</span>
+          </div>
+          <div class="admin_changeFare">
+            <div class="fare_info"> 주차요금 : 1분 당 <strong class="colored"><%= changedFare%></strong> 원</div>
+          <form action="/admin/changefare" method="post">
+            <input type="text" id="change_input" name="changedFare" required pattern="([1-9])(\d{0,4})([0]{2})" placeholder="최소 100원 단위로 입력" autocomplete="off">
+            <input type="submit" id="change_btn" value="변경">
+          </div>
+        </section>
+      </div>
+<% include footer.ejs %>

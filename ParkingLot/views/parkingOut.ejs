@@ -1,0 +1,22 @@
+<% include header.ejs %>
+      <div class="container">
+        <section class="parking_group">
+          <div> </div>
+          <div class="parking_title">
+            <h1>차량 출차</h1><br/>
+          <span>출차할 차량 번호를 입력해주세요.</span>
+          </div>
+          <form action="/payment" method="post" class="inputbox">
+            <div class="car_out">
+                <input type="text" id="outNumber" placeholder="(예) 00가0000" autocomplete="off" name="outNumber" required pattern="([0-9]{2})([가-힣]{1})([0-9]{4})">
+                <button type="submit" id="out_btn">출차</button><br>
+                <% var message;
+                if(message == null){
+                  message ="";
+                } %>
+            </div>
+            <div class="car_out_result"><%= message %></div> 
+          </form>
+        </section>
+       </div>
+<% include footer.ejs %>

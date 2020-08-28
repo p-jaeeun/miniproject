@@ -1,0 +1,78 @@
+<% var text ;
+if(text== null){
+  text ="";}
+  var paymore;
+  if(paymore== null){
+    paymore ="";}
+var change;
+if(change == null){
+  change =0;
+}
+%>
+<% include header.ejs %>
+      <div class="container">
+        <section class="pay_group">
+          <div class="pay_title">
+            <h1>주차 요금 정산</h1><br/>
+          </div>
+          <div>
+            <div class="pay_info">
+            <p>차량번호 <%= outNumber %> 주차 요금은 
+            <strong class="colored"><%= parkingFare%></strong> 원입니다.</p><br>
+            <div><%= text%></div>
+            </div>
+            <% if(parkingFare !== 0 && paymore !=1){%>
+
+            <div class="pay_info">
+            <p><u>당일 구매</u>한 영수증이 있으실 경우, <strong>영수증 번호</strong>를 입력해주세요.</p>
+            </div>
+
+            <div class="pay_receipt">
+            <form action="/payment/process" method="post">
+              <input type="text" id="receipt" name="receiptNum" placeholder="영수증번호(예:20200101)" autocomplete="off" pattern="\d{8}"> 
+              <input type="hidden" name="parkingFare" value=<%= parkingFare %>>
+              <input type="hidden" name="outNumber" value=<%= outNumber %>>
+              <input type="submit" id="receipt_btn" value="입력">
+            </form>
+          </div>   
+          <div class="pay_info">
+            <br>
+            <p>당일 구매한 영수증이 없다면, <strong>결제방식</strong>을 선택해주세요.</p><br/>
+            </div>
+            <%} %>
+            <% if(parkingFare !==0 ){ %>
+          <div class="pay_type">
+            <div>
+              <form action="/payment/process/cash" method="post">
+                <input type="hidden" name="parkingFare" value=<%= parkingFare %>>
+                <input type="hidden" name="outNumber" value=<%= outNumber %>>
+                <input type="text" id="cashinput" name="cash" placeholder="금액을 입력해주세요" autocomplete="off" required pattern="(\d{1,7})([0]{2})"> 
+                <input type="submit" id="cash_btn" value="현금결제">
+              </form>
+            </div>
+            <br>
+            <div>
+            <form action="/payment/process/card" method="post">
+              <input type="hidden" name="parkingFare" value=<%= parkingFare %>>
+              <input type="hidden" name="outNumber" value=<%= outNumber %>>
+              <input type="submit" id="card_btn" value="카드결제">
+            </form>
+            </div>
+          </div>
+          <%}%>
+            <% if(parkingFare == 0) {%>
+              <% if(change !==0){%>
+              <div>거스름돈은 <%=change%> 원입니다.</div>
+              <%} %>
+              <form action="/exit" method="post">
+                <input type="hidden" name="outNumber" value=<%= outNumber %>>
+                <input type="submit" id="exit_btn" value="출차하기">
+              </form> 
+              
+            <%} %>
+
+        </section>
+      </div>
+<% include footer.ejs %>
+
+

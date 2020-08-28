@@ -1,0 +1,35 @@
+<% include header.ejs %>
+      <div class="container">
+        <% include admin_menu.ejs %>
+        <section class="admin_section">
+          <div class="admin_content">
+          <div class="admin_title">
+            <h1>차량 입출차 현황</h1>
+          </div>
+          <table>
+            <tr>
+              <th>번호</th>
+              <th>차량번호</th>
+              <th>입차시간</th>
+              <th>출차시간</th>
+              <th>결제여부</th>
+            </tr>
+            <%
+            for(var i=0; i<results.length; i++)
+            {
+            %> 
+             <tr>
+               <td><%=results[i].vid%></td>
+               <td><%=results[i].vehicle_num%></td>
+               <td><%=results[i].enter_time%></td>
+               <td><%=results[i].leave_time%></td>
+               <td><%=results[i].paid%></td>
+             </tr>
+            <% 
+            }
+            %>
+          </table>
+        </div>
+        </section>
+      </div>
+<% include footer.ejs %>
