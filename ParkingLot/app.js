@@ -4,7 +4,6 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var db = require('./config/db.js'); 
-var indexRouter = require('./routes/index');
 
 var app = express();
 
@@ -25,7 +24,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
+const routes = require('./routes');
+app.use('/', routes);
+
 
 
 // catch 404 and forward to error handler
@@ -43,9 +44,5 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
-// db index에서 사용하기위한..???
-const router = require('./routes/index.js');
-app.use('/', router);
 
 module.exports = app;

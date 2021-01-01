@@ -28,7 +28,7 @@ if(change == null){
             </div>
 
             <div class="pay_receipt">
-            <form action="/payment/process" method="post">
+            <form action="/parking/payment/process" method="post">
               <input type="text" id="receipt" name="receiptNum" placeholder="영수증번호(예:20200101)" autocomplete="off" pattern="\d{8}"> 
               <input type="hidden" name="parkingFare" value=<%= parkingFare %>>
               <input type="hidden" name="outNumber" value=<%= outNumber %>>
@@ -43,7 +43,7 @@ if(change == null){
             <% if(parkingFare !==0 ){ %>
           <div class="pay_type">
             <div>
-              <form action="/payment/process/cash" method="post">
+              <form action="/parking/payment/process/cash" method="post">
                 <input type="hidden" name="parkingFare" value=<%= parkingFare %>>
                 <input type="hidden" name="outNumber" value=<%= outNumber %>>
                 <input type="text" id="cashinput" name="cash" placeholder="금액을 입력해주세요" autocomplete="off" required pattern="(\d{1,7})([0]{2})"> 
@@ -52,7 +52,7 @@ if(change == null){
             </div>
             <br>
             <div>
-            <form action="/payment/process/card" method="post">
+            <form action="/parking/payment/process/card" method="post">
               <input type="hidden" name="parkingFare" value=<%= parkingFare %>>
               <input type="hidden" name="outNumber" value=<%= outNumber %>>
               <input type="submit" id="card_btn" value="카드결제">
@@ -64,7 +64,7 @@ if(change == null){
               <% if(change !==0){%>
               <div>거스름돈은 <%=change%> 원입니다.</div>
               <%} %>
-              <form action="/exit" method="post">
+              <form action="/parking/exit" method="post">
                 <input type="hidden" name="outNumber" value=<%= outNumber %>>
                 <input type="submit" id="exit_btn" value="출차하기">
               </form> 
